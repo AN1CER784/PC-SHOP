@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Michroma&display=swap");
+
+
+.navbar a {
+    color: white;
+}
+
+.navbar-nav .nav-link.show,
+.navbar a:hover,
+.navbar a:focus,
+.navbar a:active {
+    color: #00fff6;
+}
+
+body {
+    background: url(/static/deps/img/main-image.png), linear-gradient(180deg, #000000 8%, #0027ff 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    height: 100%;
+
+}
+
+
+body {
+    color: white;
+    font-family: "Michroma", sans-serif;
+}
+
+.modal-body.container {
+    width: 200%;
+}
+
+
+.modal-content {
+    background: linear-gradient(0deg, #0033ff 1%, #000000 85%);
+    border: white solid;
+}
+
+
+.input-group button {
+    color: white;
+    background-color: #01091f;
+}
+
+* {
+    font-size: 1.01em;
+}
