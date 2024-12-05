@@ -1,17 +1,3 @@
-.details {
-    border: 0.1em solid grey;
-    color: #212121;
-    height: auto;
-
-    box-shadow: 0 0 1em #212121;
-}
-
-.cart {
-    background-color: #212121;
-    color: white;
-    border: 0.1em solid grey;
-    box-shadow: 0 0.5em 1em #212121;
-}
 
 .card.mx-auto {
     box-shadow: 0 2em 4em rgba(0, 0, 0, .2);
@@ -19,25 +5,54 @@
     background: linear-gradient(180deg, #2e35ff 0%, #0400f5 14%, #02008a 28%, #020075 44%, #010052 60%, #000000 83%);
     width: 90%;
     position: relative;
-
+    border-radius: 5px;
+    border: 0.2em solid #000000;
 
 }
 
-.btn.cart:hover {
-    border: #1a1d20;
-    background-color: #1a1d20;
+.details {
+    box-shadow: 0 0.2em 1em #263a3a;
+    border: 0.1em solid #272c4f;
+    background-color: #5d6998;
 }
 
-.buttons{
-    bottom: 10px; /* Расположить кнопки на 10px выше от низа карточки */
-    left: 50%; /* Центровка кнопок по горизонтали */
+.details:hover {
+    background-color: #313865;
 }
 
-.card img {
-    max-height: 50%;
+.cart {
+    background-color: #000f43;
+    color: white;
+    border: 0.1em solid #01091f;
+    box-shadow: 0 0.2em 1em #01091f;
+}
+
+.cart:hover {
+    background-color: #01091f;
+    border: 0.1em solid #01091f;
+    color: white;
+}
+
+.buttons {
+    position: absolute;
+    bottom: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+}
+
+.card>img {
+    height: 10em;
+    width: 100%;
     object-fit: contain;
-    border-radius: 0.1em;
+    background: white;
+    border-radius: 0;
+    border-right: 0.1em solid #000000;
+    border-left: 0.1em solid #000000;
+    border-bottom: 0.2em solid #000000;
+    box-shadow: inset 0.2em 0 1em 0.5em rgba(130, 130, 130, 0.5);
 }
+
 
 .page-link {
     color: #a3cfbb;
@@ -63,7 +78,8 @@
 }
 
 
-.page-item.disabled .page-link{
-        background-color: #181818;
+.page-item.disabled .page-link {
+    background-color: #181818;
     color: white;
 }
+

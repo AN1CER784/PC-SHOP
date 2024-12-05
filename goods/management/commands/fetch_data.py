@@ -1,15 +1,14 @@
 import random
 import aiohttp
 import asyncio
-
 from asgiref.sync import sync_to_async
 from bs4 import BeautifulSoup
+from django.core.management import BaseCommand
 from fake_useragent import UserAgent
-import time
 from goods.models import Product, Category
 from loguru import logger
 
-SEMAPHORE_LIMIT = 5  # Лимит одновременных запросов
+SEMAPHORE_LIMIT = 3
 semaphore = asyncio.Semaphore(SEMAPHORE_LIMIT)
 
 
@@ -24,6 +23,7 @@ def create_product(**kwargs):
 
 
 async def fetch_with_semaphore(session, url):
+    async with semaphore:
         await asyncio.sleep(random.uniform(1, 5))
         return await fetch(session, url)
 
@@ -103,16 +103,28 @@ async def process_product(session, product_url, my_category):
         product_image = soup.find('a', class_='elem image lightbox-opener')
         try:
             description = soup.find('table', class_='table table-bordered table-responsive')
-            attributes_list = description.find_all('td')
+            attributes_list = description.find_all('tr')
             if attributes_list:
                 product_name = product_name.get_text()
                 price = soup.find('span', class_='price-amount').get_text()
                 product_image = product_image.get('href')
                 json_description = {}
-                for i in range(len(attributes_list) // 2):
-                    table_cap, table_td = attributes_list[i].findChild('span'), attributes_list[i + 1].findChild('span')
-                    if table_cap and table_td:
-                        json_description[table_cap.text] = table_td.text
+                for attribute in attributes_list:
+                    td_elements = attribute.findChildren('td', recursive=False)
+                    add_elements = []
+                    for td in td_elements:
+                        if td.findChild('span'):
+                            td = td.findChild('span').get_text(strip=True)
+                        else:
+                            td = td.get_text(strip=True)
+                        add_elements.append(td)
+                    logger.info(add_elements)
+                    if len(add_elements) == 2:
+                        table_cap = add_elements[0]
+                        table_td = add_elements[1]
+                        json_description[table_cap] = table_td
+                    elif len(add_elements) == 1:
+                        json_description[add_elements[0]] = None
 
                 order = await create_product(
                     name=product_name,
@@ -122,7 +134,6 @@ async def process_product(session, product_url, my_category):
                     quantity=random.randint(10, 100),
                     category=await get_category(slug=my_category)
                 )
-                logger.info("----------------------")
                 logger.info(order)
             else:
                 logger.warning("Attributes not found.")
@@ -148,5 +159,6 @@ async def main():
             await asyncio.gather(*tasks, return_exceptions=True)
 
 
-start_time = time.time()
-asyncio.run(main())
+class Command(BaseCommand):
+    def handle(self, *args, **kwargs):
+        asyncio.run(main())
