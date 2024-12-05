@@ -1,0 +1,69 @@
+.details {
+    border: 0.1em solid grey;
+    color: #212121;
+    height: auto;
+
+    box-shadow: 0 0 1em #212121;
+}
+
+.cart {
+    background-color: #212121;
+    color: white;
+    border: 0.1em solid grey;
+    box-shadow: 0 0.5em 1em #212121;
+}
+
+.card.mx-auto {
+    box-shadow: 0 2em 4em rgba(0, 0, 0, .2);
+    height: 30em;
+    background: linear-gradient(180deg, #2e35ff 0%, #0400f5 14%, #02008a 28%, #020075 44%, #010052 60%, #000000 83%);
+    width: 90%;
+    position: relative;
+
+
+}
+
+.btn.cart:hover {
+    border: #1a1d20;
+    background-color: #1a1d20;
+}
+
+.buttons{
+    bottom: 10px; /* Расположить кнопки на 10px выше от низа карточки */
+    left: 50%; /* Центровка кнопок по горизонтали */
+}
+
+.card img {
+    max-height: 50%;
+    object-fit: contain;
+    border-radius: 0.1em;
+}
+
+.page-link {
+    color: #a3cfbb;
+    background-color: black;
+}
+
+.nav-pagination a:hover {
+    color: #a3cfbb;
+    background-color: #010618;
+}
+
+.page-item.active .page-link {
+    color: #a3cfbb;
+    background-color: #203a57;
+    border: solid white 0.1em;
+}
+
+.page-link:focus {
+    outline: none;
+    box-shadow: none;
+    color: #a3cfbb;
+    background-color: #010618;
+}
+
+
+.page-item.disabled .page-link{
+        background-color: #181818;
+    color: white;
+}

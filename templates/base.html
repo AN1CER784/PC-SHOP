@@ -10,7 +10,7 @@
 	<link href="{% static "deps/css/bootstrap.min.css"%}" rel="stylesheet">
 	<link rel="icon" type="image/png" sizes="32x32" href="{% static "deps/img/pc-icon.png"%}">
 	<link rel="stylesheet" href={% static "deps/css/main.css"%}>
-	{% block css_footer %}
+	{% block css %}
 	{% endblock %}
 </head>
 <body>
@@ -41,7 +41,7 @@
 							Catalog
 						</a>
 						<ul class="dropdown-menu bg-black">
-							<li><a class="dropdown-item" href="goods/categories.html">Categories</a></li>
+							<li><a class="dropdown-item" href="{% url 'goods:categories' %}">Categories</a></li>
 							<li><a class="dropdown-item" href="goods/configurator.html">Configurator</a></li>
 						</ul>
 					</li>

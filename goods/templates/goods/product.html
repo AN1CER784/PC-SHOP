@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block css %}
+	<link rel="stylesheet" href={% static 'goods/deps/css/product.css' %}>
+{% endblock %}
+
+{% block content %}
+	<div class="container product-card m-2 p-2">
+					<div class="product-header">
+						<img src="{% static '/goods/deps/img/catalog/gpu/4080ti.png' %}" alt="Фото NVIDIA GeForce RTX 4080TI">
+
+						<div class="product-info">
+							<h1>Видеокарта NVIDIA GeForce RTX 4080TI</h1>
+							<p>Одна из мощнейших видеокарт на рынке, созданная на основе архитектуры NVIDIA Ampere.
+								Подходит для игр, рендеринга и профессиональной работы с графикой.</p>
+						</div>
+					</div>
+
+					<div class="product-specs">
+						<h2>Characteristics</h2>
+						<dl>
+							<dt>...</dt>
+							<dd>...</dd>
+						</dl>
+					</div>
+					<a href="/cart" class="add-to-cart">Add to cart</a>
+				</div>
+{% endblock %}
+
