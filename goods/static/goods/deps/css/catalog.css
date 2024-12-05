@@ -29,12 +29,16 @@
 }
 
 .buttons{
-    bottom: 10px; /* Расположить кнопки на 10px выше от низа карточки */
-    left: 50%; /* Центровка кнопок по горизонтали */
+position: absolute;
+    bottom: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
 }
 
 .card img {
-    max-height: 50%;
+    height: 10em;
+    width: 14em;
     object-fit: contain;
     border-radius: 0.1em;
 }
@@ -64,6 +68,6 @@
 
 
 .page-item.disabled .page-link{
-        background-color: #181818;
+    background-color: #181818;
     color: white;
 }
