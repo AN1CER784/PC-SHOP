@@ -14,7 +14,19 @@ class CategoryView(ListView):
 
 
 class ProductView(DetailView):
-    ...
+    model = Product
+    template_name = 'goods/product.html'
+    context_object_name = 'product'
+    slug_url_kwarg = 'product_slug'
+
+    def get_object(self, queryset=None):
+        product = Product.objects.get(slug=self.kwargs.get(self.slug_url_kwarg))
+        return product
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = f'PC-Shop - {self.object.name}'
+        return context
 
 
 class CatalogView(ListView):
@@ -36,4 +48,3 @@ class CatalogView(ListView):
         else:
             goods = Product.objects.filter(category__slug=slug)
         return goods
-

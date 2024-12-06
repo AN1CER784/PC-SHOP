@@ -1,18 +1,25 @@
 .container.product-card {
     border-radius: 8px;
-    background: linear-gradient(0deg, #000 2%, #001247 13%, #001c70 27%, #002594 40%, #245bff 49%, #002594 59%, #001c70 72%, #001247 85%, #000000 100%);
-
+    background: linear-gradient(0deg, #001247 2%, #001c70 27%, #002594 40%, #245bff 49%, #002594 59%, #001c70 72%, #001247 85%, #000000 100%);
+    border: black solid 0.2em;
 }
 
 .product-header {
     display: flex;
     gap: 20px;
     align-items: flex-start;
+    position: relative;
 }
 
 .product-header img {
     max-width: 50%;
-    border-radius: 8px;
+    border-radius: 3px;
+    height: 20em;
+    object-fit: contain;
+    border: solid 0.2em black;
+    background: white;
+    box-shadow: inset 0.2em 0 1em 0.5em rgba(130, 130, 130, 0.5);
+
 }
 
 .product-info {
@@ -30,16 +37,20 @@
 .add-to-cart {
     display: inline-block;
     padding: 10px 20px;
-    background: #000000;
     color: white;
     text-decoration: none;
     border-radius: 4px;
+    border: solid 0.1em white;
     font-weight: bold;
     text-align: center;
+    background: rgb(24, 50, 96);
+    position: absolute; /* Абсолютное позиционирование кнопки */
+    bottom: 1em; /* Отступ от нижнего края */
+    right: 1em; /* Отступ от правого края */
 }
 
 .add-to-cart:hover {
-    background: #5b5b5b;
+    background: rgb(11, 24, 46);
 }
 
 .product-specs {
@@ -50,16 +61,31 @@
     margin-bottom: 10px;
 }
 
-dl {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 10px;
+table {
+    width: 100%; /* Задает таблице ширину 100% от родительского контейнера */
+    border-collapse: collapse; /* Убирает промежутки между границами ячеек */
 }
 
-dt {
-    font-weight: bold;
+th, td {
+    padding: 8px; /* Внутренний отступ внутри ячеек */
+    text-align: left; /* Выравнивание текста в ячейках */
+    border: 1px solid #ddd; /* Граница между ячейками */
 }
 
-dd {
-    margin: 0;
+tr:nth-child(even) {
+    background-color: black; /* Заливка четных строк для читаемости */
+}
+
+@media (max-width: 990px) {
+    .product-header {
+        font-size: 0.9rem;
+        height: 40vh;
+    }
+}
+
+@media (max-width: 764px) {
+    .product-card * {
+        font-size: 0.8rem;
+    }
+
 }
