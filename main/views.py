@@ -1,6 +1,5 @@
-from django.views.generic import TemplateView
-
-from django.shortcuts import render
+from django.views.generic import TemplateView, DetailView
+from main.models import InfoOnPage
 
 
 class IndexView(TemplateView):
@@ -13,24 +12,28 @@ class IndexView(TemplateView):
         return context
 
 
-class AboutView(TemplateView):
+class AboutView(DetailView):
+    model = InfoOnPage
     template_name = "main/about.html"
+    context_object_name = "info"
+
+    def get_object(self, queryset=None):
+        return InfoOnPage.objects.get(page_name="about")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["title"] = "About"
-        context["content"] = "About us"
-        context[
-            "text_on_page"] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         return context
 
 
-class ContactView(TemplateView):
+class ContactView(DetailView):
     template_name = "main/contact.html"
+    context_object_name = "info"
+
+    def get_object(self, queryset=None):
+        return InfoOnPage.objects.get(page_name="contact")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["title"] = "Contact"
-        context["content"] = "Contact us"
-        context["text_on_page"] = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
         return context

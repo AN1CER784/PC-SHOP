@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+	<link rel="stylesheet" href="{% static 'users/deps/css/login.css' %}">
+{% endblock %}
+{% block content %}
+	<div class="row">
+		<div class="container mt-2">
+			<div class="row justify-content-center">
+				<div class="loginBox"><img class="user" src="https://i.ibb.co/yVGxFPR/2.png" height="100px"
+				                           width="100px">
+					<h3>Sign in here</h3>
+					<form method="post" action="{% url 'users:login' %}">
+						{% csrf_token %}
+						<div class="inputBox">
+							<input id="id_username" name="username" type="text" value="{% if form.username.value %}{{ form.username.value }}{% endif %}" placeholder="Username">
+							<input id="id_password" type="password" name="password" placeholder="Password"></div>
+						<input type="submit" value="Login">
+					</form>
+					<a class="forget-password" href="#">Forget Password<br> </a>
+					<div class="text-center">
+						<a class="pt-2" href="registration.html">
+							<p class="sign-up">Sign-Up</p>
+						</a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

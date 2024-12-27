@@ -13,6 +13,7 @@ class Category(models.Model):
         super().save(*args, **kwargs)
 
     class Meta:
+        db_table = 'category'
         verbose_name = 'Category'
         verbose_name_plural = 'Categories'
 
@@ -21,8 +22,8 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    name = models.CharField(max_length=100)
-    slug = models.SlugField(max_length=100, blank=True, null=True)
+    name = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=200, blank=True, null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     description = models.JSONField(null=True, blank=True)
     image = models.URLField(max_length=500, null=True, blank=True)
@@ -35,6 +36,7 @@ class Product(models.Model):
         super().save(*args, **kwargs)
 
     class Meta:
+        db_table = 'product'
         verbose_name = 'Product'
         verbose_name_plural = 'Products'
         ordering = ['id']

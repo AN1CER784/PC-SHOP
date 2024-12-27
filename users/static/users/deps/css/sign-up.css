@@ -1,0 +1,33 @@
+.card.sign-up {
+    background: linear-gradient(0deg, #000 2%, #001247 13%, #001c70 27%, #002594 40%, #245bff 49%, #002594 59%, #001c70 72%, #001247 85%, #000000 100%);
+    border-radius: 25px;
+    border-color: black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.form-control.sign-up:hover {
+    color: #42F3FA;
+    border: 1px solid #42F3FA;
+    box-shadow: 0 0 5px rgba(0, 255, 0, .3), 0 0 10px rgba(0, 255, 0, .2), 0 0 15px rgba(0, 255, 0, .1), 0 2px 0 black
+}
+
+.form-control.sign-up::placeholder {
+  color: grey;
+}
+
+.form-control.sign-up{
+    border: none;
+    color: white;
+    background-color: black;
+}
+
+.form-control.sign-up:focus{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    outline: none;
+    border: none;
+        border-bottom: 2px solid #42F3FA;
+    color: white;
+    background-color: black;
+}

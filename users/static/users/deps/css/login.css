@@ -1,0 +1,96 @@
+
+.loginBox {
+    width: 40em;
+    min-height: 30em;
+    background: linear-gradient(0deg, #000 2%, #001247 13%, #001c70 27%, #002594 40%, #245bff 49%, #002594 59%, #001c70 72%, #001247 85%, #000000 100%);
+    border-radius: 10px;
+    border: black solid 0.2em;
+    box-sizing: border-box;
+
+}
+
+.user {
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 20px
+}
+
+h3 {
+    margin: 0;
+    padding: 0 0 20px;
+    color: white;
+    text-align: center
+}
+
+.loginBox input {
+    width: 100%;
+    margin-bottom: 20px;
+
+}
+
+.loginBox input[type="text"], .loginBox input[type="password"] {
+    border: none;
+    border-bottom: 2px solid #262626;
+    border-radius: 10px;
+    outline: none;
+    height: 40px;
+    color: white;
+    background-color: black;
+    font-size: 16px;
+    padding-left: 20px;
+    box-sizing: border-box
+}
+
+.loginBox input[type="text"]:hover, .loginBox input[type="password"]:hover {
+    color: #42F3FA;
+    border: 1px solid #42F3FA;
+    box-shadow: 0 0 5px rgba(0, 255, 0, .3), 0 0 10px rgba(0, 255, 0, .2), 0 0 15px rgba(0, 255, 0, .1), 0 2px 0 black
+}
+
+.loginBox input[type="text"]:focus, .loginBox input[type="password"]:focus {
+    border-bottom: 2px solid #42F3FA
+}
+
+.inputBox {
+    position: relative
+}
+
+.inputBox span {
+    position: absolute;
+    top: 10px;
+    color: #262626
+}
+
+.loginBox input[type="submit"] {
+    border: white solid 0.1em;
+    outline: none;
+    height: 40px;
+    font-size: 16px;
+    background: #000000;
+    color: #fff;
+    border-radius: 20px;
+    cursor: pointer
+
+}
+
+.loginBox a {
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    display: block
+}
+
+.forget-password:hover, .sign-up:hover {
+    color: #00ffff
+}
+
+.forget-password{
+    color: white;
+
+}
+
+.sign-up{
+    color: #b9b9b9;
+        font-size: 2em;
+}

@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from main.models import InfoOnPage
+
+
+@admin.register(InfoOnPage)
+class ModelNameAdmin(admin.ModelAdmin):
+    list_display = ("page_name",)

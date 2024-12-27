@@ -1,23 +1,21 @@
-{% load static %}
-
-
 <!doctype html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>PC-Shop - {{ title }}</title>
-	<link href="{% static "deps/css/bootstrap.min.css"%}" rel="stylesheet">
-	<link rel="icon" type="image/png" sizes="32x32" href="{% static "deps/img/pc-icon.png"%}">
-	<link rel="stylesheet" href={% static "deps/css/main.css"%}>
-	{% block css %}
-	{% endblock %}
+	<title>PC-Shop - Main</title>
+	<link href="../../static/deps/css/bootstrap.min.css" rel="stylesheet"
+	      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<link rel="icon" type="image/png" sizes="32x32" href="../../static/deps/img/pc-icon.png">
+	<link href="../../static/deps/css/main.css" rel="stylesheet">
+	<link rel="stylesheet" href="static/css/sign-up.css">
+
 </head>
 <body>
 <header>
 	<nav class="navbar navbar-expand-xl bg-black" data-bs-theme="dark">
 		<div class="container">
-			<a class="navbar-brand" href="{% url "main:index" %}">Home</a>
+			<a class="navbar-brand" href="../index.html">Home</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 			        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
 			        aria-expanded="false" aria-label="Toggle navigation">
@@ -31,8 +29,8 @@
 							Information
 						</a>
 						<ul class="dropdown-menu bg-black">
-							<li><a class="dropdown-item" href="{% url 'main:about' %}">About us</a></li>
-							<li><a class="dropdown-item" href="{% url 'main:contact' %}">Contact info</a></li>
+							<li><a class="dropdown-item" href="#">About us</a></li>
+							<li><a class="dropdown-item" href="#">Contact info</a></li>
 						</ul>
 					</li>
 					<li class="nav-item dropdown">
@@ -41,15 +39,15 @@
 							Catalog
 						</a>
 						<ul class="dropdown-menu bg-black">
-							<li><a class="dropdown-item" href="{% url 'goods:categories' %}">Categories</a></li>
-							<li><a class="dropdown-item" href="goods/configurator.html">Configurator</a></li>
+							<li><a class="dropdown-item" href="../../goods/templates/goods/categories.html">Categories</a></li>
+							<li><a class="dropdown-item" href="../../goods/templates/configurator.html">Configurator</a></li>
 						</ul>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Cart</a>
+						<a class="nav-link" href="../cart/cart.html">Cart</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="{% url 'users:login' %}">Sign in</a>
+						<a class="nav-link" href="login.html">Sign in</a>
 					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -57,9 +55,9 @@
 							Account
 						</a>
 						<ul class="dropdown-menu bg-black">
-							<li><a class="dropdown-item" href="users/profile.html">Profile</a></li>
-							<li><a class="dropdown-item" href="cart/cart.html">Cart</a></li>
-							<li><a class="dropdown-item" href="orders/orders.html">Orders</a></li>
+							<li><a class="dropdown-item" href="profile.html">Profile</a></li>
+							<li><a class="dropdown-item" href="../cart/cart.html">Cart</a></li>
+							<li><a class="dropdown-item" href="../orders/orders.html">Orders</a></li>
 							<li>
 								<hr class="dropdown-divider">
 							</li>
@@ -81,7 +79,7 @@
 			<div>
 				<button type="button" class="btn bg-black btn-secondary d-flex" id="modalButton"
 				        aria-expanded="false" data-bs-toggle="modal" data-bs-target="#exampleModal">
-					<img class="mx-1" src="{% static "deps/img/cart.png" %}" alt="Catalog Icon" width="24"
+					<img class="mx-1" src="../../static/deps/img/cart.png" alt="Catalog Icon" width="24"
 					     height="24">
 					<span id="goods-in-cart-count">0</span>
 				</button>
@@ -131,7 +129,7 @@
 												<div class="col p-0"><strong>100.00$</strong></div>
 												<div class="col p-0">
 													<a href="#" class="remove-from-cart" data-cart-id="">
-														<img class="mx-1" src="{% static "deps/img/trash-bin.png" %}"
+														<img class="mx-1" src="../../static/deps/img/trash-bin.png"
 														     alt="Catalog Icon" width="32" height="32">
 													</a>
 												</div>
@@ -160,15 +158,104 @@
 			<div class="col-xxl-2">
 			</div>
 			<div class="col-xxl-10">
-				{% block content %}
-				{% endblock %}
+				<div class="container mb-4 mt-1">
+					<div class="row d-flex justify-content-center align-items-center">
+						<div class="col-lg-12 col-xl-11">
+							<div class="card sign-up text-white">
+								<div class="card-body p-md-5">
+									<div class="row justify-content-center">
+										<div class="col-lg-12">
+
+											<p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+
+											<form class="mx-1 mx-md-4">
+												<div class="row mb-4">
+													<div class="col-md-6">
+														<div data-mdb-input-init class="form-outline flex-fill mb-0">
+															<input type="text" id="id_firstname" class="form-control sign-up"
+															       placeholder="Type your first name"/>
+															<label class="form-label" for="id_firstname">Your First
+																name</label>
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div data-mdb-input-init class="form-outline flex-fill mb-0">
+															<input type="text" id="id_lastname" class="form-control sign-up"
+															       placeholder="Type your last name"/>
+															<label class="form-label" for="id_lastname">Your Last
+																name</label>
+														</div>
+													</div>
+												</div>
+
+												<div class="row mb-4">
+													<div class="col-md-6">
+														<div data-mdb-input-init class="form-outline flex-fill mb-0">
+															<input type="text" id="id_username" class="form-control sign-up"
+															       placeholder="Type your username"/>
+															<label class="form-label" for="id_username">Your
+																Username</label>
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div data-mdb-input-init class="form-outline flex-fill mb-0">
+															<input type="email" id="id_email" class="form-control sign-up"
+															       placeholder="Type your email"/>
+															<label class="form-label" for="id_email">Your Email</label>
+														</div>
+													</div>
+												</div>
+
+												<div class="row mb-4">
+													<div class="col-md-6">
+														<div data-mdb-input-init class="form-outline flex-fill mb-0">
+															<input type="password" id="id_password1"
+															       class="form-control sign-up"
+															       placeholder="Type your password"/>
+															<label class="form-label"
+															       for="id_password1">Password</label>
+														</div>
+													</div>
+													<div class="col-md-6">
+														<div data-mdb-input-init class="form-outline flex-fill mb-0">
+															<input type="password" id="id_password2"
+															       class="form-control sign-up"
+															       placeholder="Repeat your password"/>
+															<label class="form-label" for="id_password2">Repeat your
+																password</label>
+														</div>
+													</div>
+												</div>
+
+												<div class="form-check d-flex justify-content-center mb-5">
+													<input class="form-check-input me-2" type="checkbox" value=""
+													       id="id_agree"/>
+													<label class="form-check-label" for="id_agree">
+														I agree all statements in <a href="#!">Terms of service</a>
+													</label>
+												</div>
+
+												<div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+													<button type="button" data-mdb-button-init data-mdb-ripple-init
+													        class="btn bg-black text-white border-white btn-lg">
+														Register
+													</button>
+												</div>
+											</form>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
 			</div>
 		</div>
 	</div>
 
 </section>
-{% block footer %}
-{% endblock %}
-<script src="{% static "deps/js/bootstrap.bundle.min.js" %}"></script>
+<script src="../../static/deps/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

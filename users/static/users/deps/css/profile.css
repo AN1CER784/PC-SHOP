@@ -1,0 +1,67 @@
+
+
+.profile-card {
+    background: linear-gradient(0deg, #000 2%, #001247 13%, #001c70 27%, #002594 40%, #245bff 49%, #002594 59%, #001c70 72%, #001247 85%, #000000 100%);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    border: black solid 0.2em;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #42F3FA;
+    object-fit: cover;
+}
+
+.profile-card input:hover, .file-label:hover{
+    color: #42F3FA;
+    border: 1px solid #42F3FA;
+    box-shadow: 0 0 5px rgba(0, 255, 0, .3), 0 0 10px rgba(0, 255, 0, .2), 0 0 15px rgba(0, 255, 0, .1), 0 2px 0 black
+}
+
+.profile-card input{
+    width: 100%;
+    border: none;
+    color: white;
+    background-color: black;
+}
+
+.profile-card input::placeholder {
+  color: grey;
+}
+
+.profile-card input:focus{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #42F3FA;
+    color: white;
+    background-color: black;
+}
+
+.btn-custom{
+    background-color: black;
+    color:white;
+    border: white solid 0.1em;
+    border-radius: 10px;
+}
+
+.btn-custom:hover{
+    background-color: black;
+    border: white solid 0.1em;
+}
+
+.file-label {
+    display: inline-block;
+    padding: 10px 10px;
+    color: #fff;
+    background-color: #000;
+    width: 50%;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+

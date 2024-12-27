@@ -1,0 +1,74 @@
+[
+  {
+    "model": "goods.category",
+    "pk": 1,
+    "fields": {
+      "name": "CPUs",
+      "image": "categories_images/processor.png",
+      "slug": "cpus"
+    }
+  },
+  {
+    "model": "goods.category",
+    "pk": 2,
+    "fields": {
+      "name": "GPUs",
+      "image": "categories_images/gpu.png",
+      "slug": "gpus"
+    }
+  },
+  {
+    "model": "goods.category",
+    "pk": 3,
+    "fields": {
+      "name": "PSUs",
+      "image": "categories_images/power-supply.png",
+      "slug": "psus"
+    }
+  },
+  {
+    "model": "goods.category",
+    "pk": 4,
+    "fields": {
+      "name": "Storage",
+      "image": "categories_images/storage.png",
+      "slug": "storage"
+    }
+  },
+  {
+    "model": "goods.category",
+    "pk": 5,
+    "fields": {
+      "name": "RAMs",
+      "image": "categories_images/memory.png",
+      "slug": "rams"
+    }
+  },
+  {
+    "model": "goods.category",
+    "pk": 6,
+    "fields": {
+      "name": "Cases",
+      "image": "categories_images/case.png",
+      "slug": "cases"
+    }
+  },
+  {
+    "model": "goods.category",
+    "pk": 7,
+    "fields": {
+      "name": "Cooling",
+      "image": "categories_images/cooling.png",
+      "slug": "cooling"
+    }
+  },
+  {
+    "model": "goods.category",
+    "pk": 8,
+    "fields": {
+      "name": "Motherboards",
+      "image": "categories_images/motherboard.png",
+      "slug": "motherboards"
+    }
+  }
+]

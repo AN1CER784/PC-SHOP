@@ -77,15 +77,13 @@ tr:nth-child(even) {
 }
 
 @media (max-width: 990px) {
-    .product-header {
-        font-size: 0.9rem;
-        height: 40vh;
+    .product-header{
+        height: 50vh;
     }
 }
 
-@media (max-width: 764px) {
-    .product-card * {
-        font-size: 0.8rem;
+@media (max-width: 767px) {
+        .product-card *{
+        font-size: 0.9rem;
     }
-
 }

@@ -9,8 +9,8 @@
 {% block content %}
 	<div class="custom-shadow mt-5 pt-5 modal-content rounded">
 		<div class="container p-4">
-			<h2>{{ content }}</h2>
-			<p class="">{{ text_on_page }}</p>
+			<h2>{{ info.page_name.capitalize }}</h2>
+			<p class="">{{ info.content }}</p>
 		</div>
 	</div>
 {% endblock %}
