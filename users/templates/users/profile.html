@@ -1,202 +1,64 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>PC-Shop - Main</title>
-	<link href="../../static/deps/css/bootstrap.min.css" rel="stylesheet"
-	      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-	<link rel="icon" type="image/png" sizes="32x32" href="../../static/deps/img/pc-icon.png">
-	<link href="../../static/deps/css/main.css" rel="stylesheet">
-	<link rel="stylesheet" href="static/css/profile.css">
-</head>
-<body>
-<header>
-	<nav class="navbar navbar-expand-xl bg-black" data-bs-theme="dark">
-		<div class="container">
-			<a class="navbar-brand" href="../index.html">Home</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-			        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-			        aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-						   aria-expanded="false">
-							Information
-						</a>
-						<ul class="dropdown-menu bg-black">
-							<li><a class="dropdown-item" href="#">About us</a></li>
-							<li><a class="dropdown-item" href="#">Contact info</a></li>
-						</ul>
-					</li>
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-						   aria-expanded="false">
-							Catalog
-						</a>
-						<ul class="dropdown-menu bg-black">
-							<li><a class="dropdown-item" href="../../goods/templates/goods/categories.html">Categories</a></li>
-							<li><a class="dropdown-item" href="../../goods/templates/configurator.html">Configurator</a></li>
-						</ul>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="../cart/cart.html">Cart</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="login.html">Sign in</a>
-					</li>
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-						   aria-expanded="false">
-							Account
-						</a>
-						<ul class="dropdown-menu bg-black">
-							<li><a class="dropdown-item" href="profile.html">Profile</a></li>
-							<li><a class="dropdown-item" href="../cart/cart.html">Cart</a></li>
-							<li><a class="dropdown-item" href="../orders/orders.html">Orders</a></li>
-							<li>
-								<hr class="dropdown-divider">
-							</li>
-							<li><a class="dropdown-item" href="#">Sign out</a></li>
-						</ul>
-					</li>
-				</ul>
-				<form class="d-flex" role="search">
-					<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-					<button class="btn btn-outline-success" type="submit">Search</button>
-				</form>
-			</div>
-		</div>
-	</nav>
-</header>
-<section>
-	<div class="container">
-		<div class="row pt-1">
-			<div>
-				<button type="button" class="btn bg-black btn-secondary d-flex" id="modalButton"
-				        aria-expanded="false" data-bs-toggle="modal" data-bs-target="#exampleModal">
-					<img class="mx-1" src="../../static/deps/img/cart.png" alt="Catalog Icon" width="24"
-					     height="24">
-					<span id="goods-in-cart-count">0</span>
-				</button>
-			</div>
-			<div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-			     aria-hidden="true">
-				<div class="modal-dialog modal-dialog-scrollable modal-xl">
-					<div class="modal-content">
-						<div class="modal-header">
-							<button type="button" class="btn-close bg-info" data-bs-dismiss="modal"
-							        aria-label="Close"></button>
-						</div>
-						<div class="modal-body ">
-							<h3 class="text-center mb-4 text-white">Cart</h3>
-							<div class="container" id="cart-items-container">
-								<div class="card mb-3 text-bg-dark bg-black shadow-lg border-white">
-									<div class="card-header border-white">
-										<h5 class="card-title">Product</h5>
-									</div>
-									<ul class="list-group list-group-flush ">
-										<li class="list-group-item text-white bg-black">
-											<div class="row text-center border-white">
-												<div class="col p-0">
-													<div class="input-group">
-                                                            <span class="input-group-btn">
-                                                                <button type="button"
-                                                                        class="btn btn-dark btn-sm decrement "
-                                                                        data-cart-id=""
-                                                                        data-cart-change-url="">-</button>
-                                                            </span>
-														<input type="text" class="form-control number" value="1"
-														       readonly>
-														<span class="input-group-btn">
-                                                                <button type="button"
-                                                                        class="btn btn-dark btn-sm increment"
-                                                                        data-cart-id=""
-                                                                        data-cart-change-url="">+</button>
-                                                            </span>
-													</div>
-												</div>
-												<div class="col p-0">
-													<p>x 100.00</p>
-												</div>
-												<div class="col p-0">
-													<p>=</p>
-												</div>
-												<div class="col p-0"><strong>100.00$</strong></div>
-												<div class="col p-0">
-													<a href="#" class="remove-from-cart" data-cart-id="">
-														<img class="mx-1" src="../../static/deps/img/trash-bin.png"
-														     alt="Catalog Icon" width="32" height="32">
-													</a>
-												</div>
-											</div>
-										</li>
-									</ul>
-								</div>
-								<div class="card mb-3 shadow-lg bg-black text-white border-white">
-									<div class="card-footer">
-										<p class="float-left">Total amount <strong>1</strong> for </p>
-										<h4 class="float-left"><strong>100.00 $</strong></h4>
-									</div>
-								</div>
-							</div>
-							<a class="btn text-white bg-black border-white" href="#">
-								Create order
-							</a>
-						</div>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+	<link rel="stylesheet" href="{% static 'users/deps/css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+	<div class="container my-2">
+		<div class="profile-card container text-center">
+			<h2>Profile Settings</h2>
+			<form class="mt-4" enctype="multipart/form-data" method="post" action="{% url 'users:profile' %}">
+				{% csrf_token %}
+				<div class="mb-3">
+					<img src="{% if user.image %}{{ user.image.url }}{% else %}https://via.placeholder.com/120{% endif %}"
+					     alt="Avatar" class="avatar mb-3">
+					<div class="file-upload mb-4">
+						<input type="file" id="id_avatar" class="file-input" hidden name="image">
+						<label for="id_avatar" class="file-label">Choose Image</label>
+						{% if form.image.errors %}
+							<div class="alert alert-secondary text-white bg-black ">{{ form.image.errors }}</div>
+						{% endif %}
 					</div>
 				</div>
-			</div>
-		</div>
-	</div>
-	<div class="container">
-		<div class="row">
-			<div class="col-xxl-2">
-			</div>
-			<div class="col-xxl-10">
-				<div class="container my-2">
-					<div class="profile-card container text-center">
-						<h2>Profile Settings</h2>
-						<form class="mt-4">
-							<div class="mb-3">
-								<img src="https://via.placeholder.com/120" alt="Avatar" class="avatar mb-3">
-								<div class="file-upload mb-4">
-									<input type="file" id="id_avatar" class="file-input" hidden>
-									<label for="id_avatar" class="file-label">Choose Image</label>
-								</div>
-							</div>
-							<div class="mb-3">
-								<label for="id_firstname" class="form-label">First name</label>
-								<input type="text" class="form-control" id="id_firstname"
-								       placeholder="Type your first name">
-							</div>
-							<div class="mb-3">
-								<label for="id_lastname" class="form-label">Last name</label>
-								<input type="text" class="form-control" id="id_lastname"
-								       placeholder="Type your last name">
-							</div>
-							<div class="mb-3">
-								<label for="id_username" class="form-label">Username</label>
-								<input type="text" class="form-control" id="id_username"
-								       placeholder="Type your username">
-							</div>
-							<div class="mb-3">
-								<label for="email" class="form-label">Email</label>
-								<input type="email" class="form-control" id="email" placeholder="Type your email">
-							</div>
-							<button type="submit" class="btn btn-custom w-25">Save Changes</button>
-						</form>
-					</div>
+				<div class="mb-3">
+					<label for="id_first_name" class="form-label">First name</label>
+					<input type="text" class="form-control" id="id_first_name" name="first_name"
+					       value="{{ form.first_name.value }}"
+					       placeholder="Type your first name">
+					{% if form.first_name.errors %}
+						<div class="alert alert-secondary text-white bg-black ">{{ form.first_name.errors }}</div>
+					{% endif %}
 				</div>
-			</div>
+				<div class="mb-3">
+					<label for="id_last_name" class="form-label">Last name</label>
+					<input type="text" class="form-control" id="id_last_name" name="last_name"
+					       value="{{ form.last_name.value }}"
+					       placeholder="Type your last name">
+					{% if form.last_name.errors %}
+						<div class="alert alert-secondary text-white bg-black ">{{ form.last_name.errors }}</div>
+					{% endif %}
+				</div>
+				<div class="mb-3">
+					<label for="id_username" class="form-label">Username</label>
+					<input type="text" class="form-control" id="id_username" name="username"
+					       value="{{ form.username.value }}"
+					       placeholder="Type your username">
+					{% if form.username.errors %}
+						<div class="alert alert-secondary text-white bg-black ">{{ form.username.errors }}</div>
+					{% endif %}
+				</div>
+				<div class="mb-3">
+					<label for="email" class="form-label">Email</label>
+					<input type="email" class="form-control" id="email" placeholder="Type your email" name="email"
+					       value="{{ form.email.value }}">
+					{% if form.email.errors %}
+						<div class="alert alert-secondary text-white bg-black ">{{ form.email.errors }}</div>
+					{% endif %}
+				</div>
+				<button type="submit" class="btn btn-custom w-25">Save Changes</button>
+			</form>
 		</div>
 	</div>
-
-</section>
-
-<script src="../../static/deps/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+{% endblock %}

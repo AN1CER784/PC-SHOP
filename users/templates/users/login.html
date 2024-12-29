@@ -13,13 +13,13 @@
 					<form method="post" action="{% url 'users:login' %}">
 						{% csrf_token %}
 						<div class="inputBox">
-							<input id="id_username" name="username" type="text" value="{% if form.username.value %}{{ form.username.value }}{% endif %}" placeholder="Username">
-							<input id="id_password" type="password" name="password" placeholder="Password"></div>
+							<input id="id_username" name="username" type="text" value="{% if form.username.value %}{{ form.username.value }}{% endif %}" placeholder="Username" required>
+							<input id="id_password" type="password" name="password" placeholder="Password" required></div>
 						<input type="submit" value="Login">
 					</form>
 					<a class="forget-password" href="#">Forget Password<br> </a>
 					<div class="text-center">
-						<a class="pt-2" href="registration.html">
+						<a class="pt-2" href="{% url 'users:registration' %}">
 							<p class="sign-up">Sign-Up</p>
 						</a>
 					</div>

@@ -7,9 +7,9 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>PC-Shop - {{ title }}</title>
-	<link href="{% static "deps/css/bootstrap.min.css"%}" rel="stylesheet">
-	<link rel="icon" type="image/png" sizes="32x32" href="{% static "deps/img/pc-icon.png"%}">
-	<link rel="stylesheet" href={% static "deps/css/main.css"%}>
+	<link href="{% static "deps/css/bootstrap.min.css" %}" rel="stylesheet">
+	<link rel="icon" type="image/png" sizes="32x32" href="{% static "deps/img/pc-icon.png" %}">
+	<link rel="stylesheet" href={% static "deps/css/main.css" %}>
 	{% block css %}
 	{% endblock %}
 </head>
@@ -48,24 +48,37 @@
 					<li class="nav-item">
 						<a class="nav-link" href="#">Cart</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{% url 'users:login' %}">Sign in</a>
-					</li>
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-						   aria-expanded="false">
-							Account
-						</a>
-						<ul class="dropdown-menu bg-black">
-							<li><a class="dropdown-item" href="users/profile.html">Profile</a></li>
-							<li><a class="dropdown-item" href="cart/cart.html">Cart</a></li>
-							<li><a class="dropdown-item" href="orders/orders.html">Orders</a></li>
-							<li>
-								<hr class="dropdown-divider">
-							</li>
-							<li><a class="dropdown-item" href="#">Sign out</a></li>
-						</ul>
-					</li>
+					{% if not user.is_authenticated %}
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'users:login' %}">Sign in</a>
+						</li>
+					{% else %}
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+							   aria-expanded="false">
+								Account
+							</a>
+							<ul class="dropdown-menu bg-black">
+								<li><a class="dropdown-item" href="{% url 'users:profile' %}">Profile</a></li>
+								<li><a class="dropdown-item" href="cart/cart.html">Cart</a></li>
+								<li><a class="dropdown-item" href="orders/orders.html">Orders</a></li>
+								<li>
+									<hr class="dropdown-divider">
+								</li>
+								<li>
+									<form method="post" action="{% url 'users:logout' %}">
+										{% csrf_token %}
+										<button type="submit" class="dropdown-item">Sign out</button>
+									</form>
+								</li>
+								{% if user.is_admin or user.is_staff %}
+									<li><a class="dropdown-item" href="{% url 'admin:index' %}">Admin panel</a></li>
+								{% endif %}
+							</ul>
+						</li>
+					{% endif %}
+
+
 				</ul>
 				<form class="d-flex" role="search">
 					<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
